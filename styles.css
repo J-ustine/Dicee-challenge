@@ -2,6 +2,7 @@
   width: 70%;
   margin: auto;
   text-align: center;
+  font-family: "Rancho", cursive;
 }
 
 .dice {
@@ -15,7 +16,6 @@ body {
 
 h1 {
   margin: 30px;
-  font-family: "Rancho", cursive;
   text-shadow: 5px 0 #232931;
   font-size: 8rem;
   color: #f4f7c5;
@@ -29,6 +29,18 @@ p {
 
 img {
   width: 80%;
+}
+.play {
+  padding: 50px;
+}
+
+.play-btn {
+  padding: 15px 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 2rem;
+  background-color: #fbc687;
+  color: #9c060c;
 }
 
 footer {
