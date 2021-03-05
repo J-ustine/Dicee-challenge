@@ -1,0 +1,39 @@
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+}
+
+body {
+  background-color: #ea907a;
+}
+
+h1 {
+  margin: 30px;
+  font-family: "Rancho", cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 8rem;
+  color: #f4f7c5;
+}
+
+p {
+  font-size: 2rem;
+  color: #f4f7c5;
+  font-family: "Rancho", cursive;
+}
+
+img {
+  width: 80%;
+}
+
+footer {
+  margin-top: 5%;
+  color: #f4f7c5;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
