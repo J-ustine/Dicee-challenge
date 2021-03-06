@@ -33,6 +33,7 @@ function playGame() {
 }
 
 function addPlayer() {
+  document.querySelector("h1").innerHTML = "Welcome to Dicee Game";
   if (numberPlayer < 6) {
     document.querySelector(
       ".row-dicee"
@@ -47,13 +48,12 @@ function addPlayer() {
   }
 }
 function removePlayer() {
+  document.querySelector("h1").innerHTML = "Welcome to Dicee Game";
   if (numberPlayer > 2) {
     document
       .querySelector(".row-dicee")
       .removeChild(document.querySelector(".row-dicee").lastChild);
     numberPlayer = numberPlayer - 1;
-    /*innerHTML -= `<div class="col"><div class="dice"><p>Player 5</p><img class='img5' src='images/dice6.png'/></div></div>`;
-    numberPlayer--;*/
   } else {
     alert("Sorry, you can't play to the Dicee Game alone!");
   }
