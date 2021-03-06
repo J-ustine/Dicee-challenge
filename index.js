@@ -1,14 +1,14 @@
 function createRandomNumbers() {
-  console.log(numberPlayer);
-  /*  randomNumbers += for (let a = 0; a<numberPlayer; a++){
-      Math.ceil(Math.random() * 6)
-  }*/
-  for (let i = randomNumbers.length; i < numberPlayer; i++) {
-    randomNumbers.push(Math.ceil(Math.random() * 6));
+  if (randomNumbers.length === 0) {
+    for (let i = 0; i < numberPlayer; i++) {
+      randomNumbers.push(Math.ceil(Math.random() * 6));
+    }
+  } else {
+    randomNumbers = [];
+    for (let i = randomNumbers.length; i < numberPlayer; i++) {
+      randomNumbers.push(Math.ceil(Math.random() * 6));
+    }
   }
-  console.log(randomNumbers);
-  console.log(Math.max.apply(Math, randomNumbers));
-  return randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
 }
 
 function playGame() {
@@ -24,13 +24,11 @@ function playGame() {
       .querySelector(`.img${i + 1}`)
       .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
   }
-
+  let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
   if (duplicate > 1) {
     document.querySelector("h1").innerHTML = `Drawn ! Play again!`;
   } else {
-    document.querySelector("h1").innerHTML = `Player ${
-      createRandomNumbers() + 1
-    } wins !`;
+    document.querySelector("h1").innerHTML = `Player ${winner + 1} wins !`;
   }
 }
 
@@ -42,7 +40,7 @@ function addPlayer() {
       numberPlayer + 1
     }</p><img class='img${
       numberPlayer + 1
-    }' src='images/dice6.png' width='100px'/></div></div>`;
+    }' src='images/dice6.png'/></div></div>`;
     numberPlayer++;
   } else {
     alert("Sorry, only 6 people can play to the Dicee Game!");
