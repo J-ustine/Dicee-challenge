@@ -35,7 +35,7 @@ function playGame() {
 function addPlayer() {
   if (numberPlayer < 6) {
     document.querySelector(
-      ".row"
+      ".row-dicee"
     ).innerHTML += `<div class="col"><div class="dice"><p>Player ${
       numberPlayer + 1
     }</p><img class='img${
@@ -46,8 +46,24 @@ function addPlayer() {
     alert("Sorry, only 6 people can play to the Dicee Game!");
   }
 }
+function removePlayer() {
+  if (numberPlayer > 2) {
+    document
+      .querySelector(".row-dicee")
+      .removeChild(document.querySelector(".row-dicee").lastChild);
+    numberPlayer = numberPlayer - 1;
+    /*innerHTML -= `<div class="col"><div class="dice"><p>Player 5</p><img class='img5' src='images/dice6.png'/></div></div>`;
+    numberPlayer--;*/
+  } else {
+    alert("Sorry, you can't play to the Dicee Game alone!");
+  }
+}
+
 let numberPlayer = 2;
 let randomNumbers = [];
 
 document.querySelector(".play-btn").addEventListener("click", playGame);
 document.querySelector(".add-player-btn").addEventListener("click", addPlayer);
+document
+  .querySelector(".remove-player-btn")
+  .addEventListener("click", removePlayer);
