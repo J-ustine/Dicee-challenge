@@ -30,7 +30,7 @@ p {
 img {
   width: 80%;
 }
-.play {
+.game-option {
   padding: 50px;
 }
 
@@ -39,8 +39,23 @@ img {
   border-radius: 10px;
   border: none;
   font-size: 2rem;
-  background-color: #fbc687;
+  background-color: #f4f7c5;
   color: #9c060c;
+}
+.add-player-btn {
+  padding: 15px 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 2rem;
+  background-color: #f4f7c5;
+  color: #9c060c;
+}
+button {
+  margin: 10px auto;
+  display: block;
+}
+button:hover {
+  cursor: pointer;
 }
 
 footer {
