@@ -25,11 +25,15 @@ function playGame() {
       .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
   }
   let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
-  if (duplicate > 1) {
-    document.querySelector("h1").innerHTML = `Drawn ! Play again!`;
-  } else {
-    document.querySelector("h1").innerHTML = `Player ${winner + 1} wins !`;
+  function winnerMessage() {
+    if (duplicate > 1) {
+      document.querySelector("h1").innerHTML = `Drawn ! Play again!`;
+    } else {
+      document.querySelector("h1").innerHTML = `Player ${winner + 1} wins !`;
+    }
   }
+  setTimeout(winnerMessage, 1000);
+  winnerMessage();
 }
 
 function addPlayer() {
@@ -43,6 +47,11 @@ function addPlayer() {
       numberPlayer + 1
     }' src='images/dice6.png'/></div></div>`;
     numberPlayer++;
+    for (let index = 1; index < numberPlayer; index++) {
+      document
+        .querySelector(`.img${index}`)
+        .setAttribute("src", `images/dice6.png`);
+    }
   } else {
     alert("Sorry, only 6 people can play to the Dicee Game!");
   }
@@ -54,6 +63,11 @@ function removePlayer() {
       .querySelector(".row-dicee")
       .removeChild(document.querySelector(".row-dicee").lastChild);
     numberPlayer = numberPlayer - 1;
+    for (let index = 1; index <= numberPlayer; index++) {
+      document
+        .querySelector(`.img${index}`)
+        .setAttribute("src", `images/dice6.png`);
+    }
   } else {
     alert("Sorry, you can't play to the Dicee Game alone!");
   }
