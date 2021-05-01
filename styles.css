@@ -56,12 +56,14 @@ button {
   display: block;
 }
 button:hover {
-  cursor: pointer;
+  cursor: "pointer";
 }
-
 footer {
   margin-top: 2%;
   color: #f4f7c5;
   text-align: center;
   font-family: "Open Sans", sans-serif;
+}
+a:hover {
+  cursor: "pointer";
 }

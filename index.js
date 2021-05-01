@@ -11,6 +11,20 @@ function createRandomNumbers() {
   }
 }
 
+const animateCSS = (element, animation, prefix = "animate__") =>
+  new Promise((resolve, reject) => {
+    const animationName = `${prefix}${animation}`;
+    const elmnt = document.querySelector(element);
+    elmnt.classList.add(`${prefix}animated`, animationName);
+
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      elmnt.classList.remove(`${prefix}animated`, animationName);
+      resolve("Animation ended");
+    }
+    elmnt.addEventListener("animationend", handleAnimationEnd, { once: true });
+  });
+
 function playGame() {
   createRandomNumbers();
   let duplicate = 0;
@@ -25,14 +39,16 @@ function playGame() {
       .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
   }
   let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
+
   function winnerMessage() {
+    const h1 = document.querySelector("h1");
     if (duplicate > 1) {
-      document.querySelector("h1").innerHTML = `Drawn ! Play again!`;
+      h1.innerHTML = `Drawn ! Play again!`;
     } else {
-      document.querySelector("h1").innerHTML = `Player ${winner + 1} wins !`;
+      h1.innerHTML = `Player ${winner + 1} wins !`;
+      animateCSS("h1", "tada");
     }
   }
-  setTimeout(winnerMessage, 1000);
   winnerMessage();
 }
 
