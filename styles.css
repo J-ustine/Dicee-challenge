@@ -25,6 +25,7 @@ p {
   font-size: 2rem;
   color: #f4f7c5;
   font-family: "Rancho", cursive;
+  padding-bottom: 15px;
 }
 
 img {
@@ -59,7 +60,7 @@ button:hover {
   cursor: "pointer";
 }
 footer {
-  margin-top: 2%;
+  margin-top: 1%;
   color: #f4f7c5;
   text-align: center;
   font-family: "Open Sans", sans-serif;
