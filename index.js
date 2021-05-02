@@ -11,21 +11,60 @@ function createRandomNumbers() {
   }
 }
 
-const animateCSS = (element, animation, prefix = "animate__") =>
+const animateCSS = (element, animation) =>
   new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
+    const animationName = `animate__${animation}`;
     const elmnt = document.querySelector(element);
-    elmnt.classList.add(`${prefix}animated`, animationName);
+    elmnt.classList.add(`animate__animated`, animationName);
 
     function handleAnimationEnd(event) {
       event.stopPropagation();
-      elmnt.classList.remove(`${prefix}animated`, animationName);
+      elmnt.classList.remove(`animate__animated`, animationName);
       resolve("Animation ended");
     }
     elmnt.addEventListener("animationend", handleAnimationEnd, { once: true });
   });
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+let angle = 0;
+// function rotation() {
+//   while (angle <= 360) {
+//     document.querySelector(".img1").style.transform = `rotate(${angle}deg)`;
+//     angle += 45;
+//   }
+// }
+function rotation() {
+  angle += 45;
+  for (let n = 0; n < randomNumbers.length; n++) {
+    document.querySelector(
+      `.img${n + 1}`
+    ).style.transform = `rotate(${angle}deg)`;
+  }
+}
+
+function handleImage() {
+  for (let i = 0; i < randomNumbers.length; i++) {
+    document
+      .querySelector(`.img${i + 1}`)
+      .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
+  }
+}
+
 function playGame() {
+  let rotate = null;
+  rotate = setInterval(rotation, 300);
+  debugger;
+  setTimeout(() => {
+    clearInterval(rotate);
+  }, 2000);
+
   createRandomNumbers();
   let duplicate = 0;
   for (let n = 0; n < randomNumbers.length; n++) {
@@ -33,23 +72,36 @@ function playGame() {
       duplicate++;
     }
   }
-  for (let i = 0; i < randomNumbers.length; i++) {
-    document
-      .querySelector(`.img${i + 1}`)
-      .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
-  }
-  let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
 
+  setTimeout(() => {
+    for (let i = 0; i < randomNumbers.length; i++) {
+      document
+        .querySelector(`.img${i + 1}`)
+        .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
+    }
+  }, 2000);
+
+  let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
   function winnerMessage() {
     const h1 = document.querySelector("h1");
     if (duplicate > 1) {
       h1.innerHTML = `Drawn ! Play again!`;
+      animateCSS("h1", "shakeX");
     } else {
       h1.innerHTML = `Player ${winner + 1} wins !`;
       animateCSS("h1", "tada");
     }
   }
-  winnerMessage();
+  setTimeout(function () {
+    const h1 = document.querySelector("h1");
+    if (duplicate > 1) {
+      h1.innerHTML = `Drawn ! Play again!`;
+      animateCSS("h1", "shakeX");
+    } else {
+      h1.innerHTML = `Player ${winner + 1} wins !`;
+      animateCSS("h1", "tada");
+    }
+  }, 2000);
 }
 
 function addPlayer() {
