@@ -101,7 +101,7 @@ function playGame() {
       h1.innerHTML = `Player ${winner + 1} wins !`;
       animateCSS("h1", "tada");
     }
-  }, 2000);
+  }, 2500);
 }
 
 function addPlayer() {
