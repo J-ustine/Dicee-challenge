@@ -79,7 +79,7 @@ function playGame() {
         .querySelector(`.img${i + 1}`)
         .setAttribute("src", `images/dice${randomNumbers[i]}.png`);
     }
-  }, 2000);
+  }, 1900);
 
   let winner = randomNumbers.indexOf(Math.max.apply(Math, randomNumbers));
   function winnerMessage() {
