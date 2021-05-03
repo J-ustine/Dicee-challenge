@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  margin: 30px;
+  margin: 18px;
   text-shadow: 5px 0 #232931;
   font-size: 7rem;
   color: #f4f7c5;
@@ -35,14 +35,7 @@ img {
   padding: 50px;
 }
 
-.play-btn {
-  padding: 15px 40px;
-  border-radius: 10px;
-  border: none;
-  font-size: 2rem;
-  background-color: #f4f7c5;
-  color: #9c060c;
-}
+.play-btn,
 .add-player-btn,
 .remove-player-btn {
   padding: 15px 40px;
@@ -67,4 +60,23 @@ footer {
 }
 a:hover {
   cursor: "pointer";
+}
+@media screen and (max-device-width: 800px) {
+  .container {
+    width: 90%;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  button {
+    margin: 10px auto;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .play-btn,
+  .add-player-btn,
+  .remove-player-btn {
+    padding: 10px 20px;
+  }
 }

@@ -34,12 +34,7 @@ function sleep(milliseconds) {
 }
 
 let angle = 0;
-// function rotation() {
-//   while (angle <= 360) {
-//     document.querySelector(".img1").style.transform = `rotate(${angle}deg)`;
-//     angle += 45;
-//   }
-// }
+
 function rotation() {
   angle += 45;
   for (let n = 0; n < randomNumbers.length; n++) {
@@ -60,7 +55,6 @@ function handleImage() {
 function playGame() {
   let rotate = null;
   rotate = setInterval(rotation, 300);
-  debugger;
   setTimeout(() => {
     clearInterval(rotate);
   }, 2000);
@@ -124,6 +118,7 @@ function addPlayer() {
     alert("Sorry, only 6 people can play to the Dicee Game!");
   }
 }
+
 function removePlayer() {
   document.querySelector("h1").innerHTML = "Welcome to Dicee Game";
   if (numberPlayer > 2) {
