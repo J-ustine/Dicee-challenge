@@ -1,5 +1,5 @@
 .container {
-  width: 70%;
+  width: 80%;
   margin: auto;
   text-align: center;
   font-family: "Rancho", cursive;
@@ -61,18 +61,20 @@ footer {
 a:hover {
   cursor: "pointer";
 }
-@media screen and (max-device-width: 800px) {
+@media screen and (max-device-width: 600px) {
   .container {
     width: 90%;
   }
   h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   button {
     margin: 10px auto;
   }
   p {
     font-size: 1.5rem;
+    padding-top: 15px;
+    padding-bottom: 5px;
   }
   .play-btn,
   .add-player-btn,

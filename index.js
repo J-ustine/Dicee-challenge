@@ -103,7 +103,7 @@ function addPlayer() {
   if (numberPlayer < 6) {
     document.querySelector(
       ".row-dicee"
-    ).innerHTML += `<div class="col"><div class="dice"><p>Player ${
+    ).innerHTML += `<div class="col-6 col-md-4 col-lg-2"><div class="dice"><p>Player ${
       numberPlayer + 1
     }</p><img class='img${
       numberPlayer + 1
